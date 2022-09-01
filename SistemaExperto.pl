@@ -41,7 +41,6 @@ resource('36.JPG',image,image('36.bmp')).
 resource('prueba',image,image('prueba.bmp')).
 
 
-
 :- new(VentanaE,dialog('Robot 1997')),
      %creacion de objetos
      new(Etiqueta,label(nombre,'SISTEMA EXPERTO')),
