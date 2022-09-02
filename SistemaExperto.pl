@@ -12,41 +12,14 @@ resource('7.JPG',image,image('7.bmp')).
 resource('8.JPG',image,image('8.bmp')).
 resource('9.JPG',image,image('9.bmp')).
 resource('10.JPG',image,image('10.bmp')).
-resource('11.JPG',image,image('11.bmp')).
-resource('12.JPG',image,image('12.bmp')).
-resource('13.JPG',image,image('13.bmp')).
-resource('14.JPG',image,image('14.bmp')).
-resource('15.JPG',image,image('15.bmp')).
-resource('16.JPG',image,image('16.bmp')).
-resource('17.JPG',image,image('17.bmp')).
-resource('18.JPG',image,image('18.bmp')).
-resource('19.JPG',image,image('19.bmp')).
-resource('20.JPG',image,image('20.bmp')).
-resource('21.JPG',image,image('21.bmp')).
-resource('22.JPG',image,image('22.bmp')).
-resource('23.JPG',image,image('23.bmp')).
-resource('24.JPG',image,image('24.bmp')).
-resource('25.JPG',image,image('25.bmp')).
-resource('26.JPG',image,image('26.bmp')).
-resource('27.JPG',image,image('27.bmp')).
-resource('28.JPG',image,image('28.bmp')).
-resource('29.JPG',image,image('29.bmp')).
-resource('30.JPG',image,image('30.bmp')).
-resource('31.JPG',image,image('31.bmp')).
-resource('32.JPG',image,image('32.bmp')).
-resource('33.JPG',image,image('33.bmp')).
-resource('34.JPG',image,image('34.bmp')).
-resource('35.JPG',image,image('35.bmp')).
-resource('36.JPG',image,image('36.bmp')).
 resource('prueba',image,image('prueba.bmp')).
 
 
-:- new(VentanaE,dialog('Robot 1997')),
+:- new(VentanaE,dialog('SISTEMA EXPERTO ORGANICOOK')),
      %creacion de objetos
      new(Etiqueta,label(nombre,'SISTEMA EXPERTO')),
      new(Salir, button('SALIR',message(VentanaE,destroy))),
      new(Usuario, button('Solicitar Sugerencia',message(@prolog,usuario))),
-     new(Experto, button('Agregar Conocimiento',message(@prolog,experto))),
      new(Figure, figure),
      new(Bitmap, bitmap(resource(login), @on)),
      %llamado de los objetos
@@ -57,7 +30,6 @@ resource('prueba',image,image('prueba.bmp')).
      send(Figure, status, 1),
      send(VentanaE, display,Figure, point(25,40)),
      send(VentanaE,display,Usuario,point(30,430)),
-     send(VentanaE,display,Experto,point(220,430)),
      send(VentanaE,display,Salir,point(400,430)),
      send(VentanaE,open).
 
@@ -491,7 +463,7 @@ dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II',
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').|
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
@@ -868,16 +840,16 @@ dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por seman
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
 
 :-dynamic image/2.
-image('Hipocalorico/proteico','30.JPG').
-image('Hipocalorico/vegetariano/keto','30.JPG').
-image('Hipocalorico/vegetariano/proteico','30.JPG').
-image('Hipercalorico/Keto','30.JPG').
-image('Hipercalorico/proteico/Keto','30.JPG').
-image('Hipercalorico/vegetariano/Keto','30.JPG').
-image('Hipercalorico/proteico/vegetariano','30.JPG').
-image('Hipocalorico/proteico/vegetariano','30.JPG').
-image('Hipocalorico/proteico/Keto','30.JPG').
-image('Hipercalorico/proteico','30.JPG').
+image('Hipocalorico/proteico','1.JPG').
+image('Hipocalorico/vegetariano/keto','2.JPG').
+image('Hipocalorico/vegetariano/proteico','3.JPG').
+image('Hipercalorico/Keto','4.JPG').
+image('Hipercalorico/proteico/Keto','5.JPG').
+image('Hipercalorico/vegetariano/Keto','6.JPG').
+image('Hipercalorico/proteico/vegetariano','7.JPG').
+image('Hipocalorico/proteico/vegetariano','8.JPG').
+image('Hipocalorico/proteico/Keto','9.JPG').
+image('Hipercalorico/proteico','10.JPG').
 
 :-dynamic justificacion/2.
 justificacion('Hipocalorico/proteico','xD').
