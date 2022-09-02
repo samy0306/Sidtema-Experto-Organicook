@@ -70,10 +70,10 @@ usuario:-
     send_list(Genero, append,['Femenino','Masculino']),
     new(Altura,
         menu('2.-¿En que rango de altura se encuentra?')),
-    send_list(Altura, append,['menor a 1.55','1.55 - 1.76','mas de 1.76']),
+    send_list(Altura, append,['menor a 1.55','1.55 a 1.76','mas de 1.76']),
     new(Edad,
         menu('3.-¿En que rango de edad se encuentra?')),
-    send_list(Edad,append,['18-29 años','30-60 años','mayor a 60 años']),
+    send_list(Edad,append,['18 a 29 años','30 a 60 años','mayor a 60 años']),
     new(Objetivo,
         menu('4.-¿Cúal es su objetivo?')),
     send_list(Objetivo,append,['Bajar de peso','Mantener peso actual','Aumentar masa muscular']),
@@ -88,13 +88,13 @@ usuario:-
     send_list(Prefproteina,append,['Cualquier proteina','Ninguna proteina de origen animal']),
     new(Carbohidratos,
         menu('8.-Seleccione sus preferencias en consumo de Carbohidratos')),
-    send_list(Carbohidratos,append,['menor 20gr','20-50gr','50-100gr']),
+    send_list(Carbohidratos,append,['menor 20gr','20 a 50gr','50 a 100gr']),
     new(Proteina,
         menu('9.-Seleccione sus preferencias en consumo de Proteina')),
     send_list(Proteina,append,['90 a 100gr o 110 a 140gr','100 a 140gr o 130 a 180gr']),
     new(NumComida,
         menu('10.-¿Cuantas comidas tiene disponibilidad a consumir?')),
-    send_list(NumComida,append,['2 almuerzo-cena ','3 Desayuno-Almuerzo-Cena', '5 Desayuno,media mañana,Almuerzo,media tarde,Cena']),
+    send_list(NumComida,append,['2 almuerzo cena ','3 Desayuno Almuerzo Cena', '5 Desayuno media mañana Almuerzo media tarde Cena']),
 
     new(Plan,text_item('Plan')),
     new(Desc,text_item('Descripción')),
@@ -185,7 +185,7 @@ jrobot(Plan,Sug):-
 %------------------------------------------------------------------
 
 :-dynamic dieta/7.
-dieta('Hipocalorico/proteico','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', 'menor20gr', '90 a 100gr o 110 a 140gr')
+dieta('Hipocalorico/proteico','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Baja', 'Diabetes I','Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/vegetariano/keto', 'Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
@@ -201,32 +201,32 @@ dieta('Hipercalorico/vegetariano/keto','Mantener peso actual', 'Alta mas de 4 po
 dieta('Hipercalorico/vegetariano/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '90-100g4ñr').
 dieta('Hipercalorico/proteico/vegetariano ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/vegetariano/keto','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/keto','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/keto','Mantener peso actual', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico','Mantener peso actual', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/vegetariano/keto','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/keto','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/keto','Mantener peso actual', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico','Mantener peso actual', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
@@ -240,64 +240,64 @@ dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por seman
 dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico','Mantener peso actual', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', 'menor 20gr', '90-100g').
 dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico /proteico','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico /proteico','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico /proteico','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico /proteico','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
@@ -311,32 +311,32 @@ dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por se
 dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico /proteico','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico /proteico','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico /proteico','Bajar de peso', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
@@ -369,70 +369,70 @@ dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por sem
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr. ').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr. ').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
@@ -462,70 +462,70 @@ dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II',
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico /proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').|
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').|
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Baja', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Baja', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Alta mas de 4 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I','Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/vegetariano/keto', 'Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
@@ -541,32 +541,32 @@ dieta('Hipercalorico/vegetariano/keto','Mantener peso actual', 'Media 1 a 3 por 
 dieta('Hipercalorico/vegetariano/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '90-100g4ñr').
 dieta('Hipercalorico/proteico/vegetariano ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/vegetariano/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/vegetariano/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico/keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
@@ -580,64 +580,64 @@ dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana'
 dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Mantener peso actual', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico','Mantener peso actual', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', 'menor 20gr', '90-100g').
 dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico /proteico','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico /proteico','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipocalorico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
@@ -651,32 +651,32 @@ dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por sema
 dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico /proteico','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico /proteico','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/Keto','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipocalorico/proteico/vegetariano','Bajar de peso', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Bajar de peso', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico /proteico','Bajar de peso', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '90 a 100gr o 110 a 140gr').
@@ -709,70 +709,70 @@ dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por seman
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', 'menor 20gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr. ').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr. ').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '90 a 100gr o 110 a 140gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
@@ -802,74 +802,74 @@ dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por seman
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', 'menor 20gr', '100 a 140gr o 130 a 180gr').
 dieta('Hipercalorico /proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', 'menor 20gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20-50gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
-dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50-100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '20 a 50gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes I', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Diabetes II', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Hipertension', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', 'Embarazo', 'Cualquier proteina', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
+dieta('Hipercalorico/proteico ','Aumentar masa muscular', 'Media 1 a 3 por semana', ' ninguna', ' ninguna', '50 a 100gr', '100 a 140gr o 130 a 180gr').
 
 :-dynamic image/2.
 image('Hipocalorico/proteico','30.JPG').
-image('Hipocalorico/vegetariano/keto','31.JPG').
+image('Hipocalorico/vegetariano/keto','30.JPG').
 image('Hipocalorico/vegetariano/proteico','30.JPG').
 image('Hipercalorico/Keto','30.JPG').
 image('Hipercalorico/proteico/Keto','30.JPG').
